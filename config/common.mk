@@ -1,7 +1,7 @@
 # Branding
 $(call inherit-product, vendor/aosp/config/branding.mk)
 
-PRODUCT_BRAND ?= PixelExperience
+PRODUCT_BRAND ?= KryptonUI
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 
@@ -225,6 +225,9 @@ $(call inherit-product, vendor/aosp/config/bootanimation.mk)
 
 # Fonts
 $(call inherit-product, vendor/aosp/config/fonts.mk)
+
+# PLE
+$(call inherit-product, vendor/PixelLauncherExtended/PixelLauncher.mk)
 
 # GMS
 $(call inherit-product, vendor/gms/products/gms.mk)

@@ -1,8 +1,11 @@
+# KryptonUI Version
+KRYPTON_VERSION := thirteen
+
 # Build fingerprint
 ifeq ($(BUILD_FINGERPRINT),)
 BUILD_NUMBER_CUSTOM := $(shell date -u +%H%M)
 CUSTOM_DEVICE ?= $(TARGET_DEVICE)
-ifneq ($(filter OFFICIAL,$(CUSTOM_BUILD_TYPE)),)
+ifneq ($(filter OFFICIAL,$(KRYPTON_BUILD_TYPE)),)
 BUILD_SIGNATURE_KEYS := release-keys
 else
 BUILD_SIGNATURE_KEYS := test-keys
@@ -29,9 +32,10 @@ CUSTOM_SECURITY_PATCH := 2022-08-05
 
 # Versioning props
 ADDITIONAL_SYSTEM_PROPERTIES  += \
-    org.pixelexperience.version=$(CUSTOM_VERSION_PROP) \
-    org.pixelexperience.version.display=$(CUSTOM_VERSION) \
-    org.pixelexperience.build_date=$(CUSTOM_BUILD_DATE) \
-    org.pixelexperience.build_date_utc=$(CUSTOM_BUILD_DATE_UTC) \
-    org.pixelexperience.build_type=$(CUSTOM_BUILD_TYPE) \
-    org.pixelexperience.build_security_patch=$(CUSTOM_SECURITY_PATCH)
+    org.krypton.version=$(KRYPTON_VERSION_PROP) \
+    org.krypton.version.display=$(KRYPTON_VERSION) \
+    org.krypton.build_date=$(CUSTOM_BUILD_DATE) \
+    org.krypton.build_date_utc=$(CUSTOM_BUILD_DATE_UTC) \
+    org.krypton.build_type=$(KRYPTON_BUILD_TYPE) \
+    org.krypton.codename=$(KRYPTON_CODENAME) \
+    org.krypton.maintainer=$(KRYPTON_MAINTAINER)
